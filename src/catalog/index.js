@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   useCatalogState,
   useCatalogDispatch,
@@ -21,7 +22,9 @@ export default () => {
     <ul>
       {status}
       {appsArray.map((app) => (
-        <li>{app.name}</li>
+        <li key={app.id}>
+          <Link to={`/app/${app.id}`}>{app.name}</Link>
+        </li>
       ))}
     </ul>
   );

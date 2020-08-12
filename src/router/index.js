@@ -5,6 +5,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { TopNav } from "../header";
 import { CatalogProvider } from "../state/catalog-context";
 
 const Catalog = lazy(() => import("../catalog"));
@@ -14,6 +15,7 @@ const NotFound = lazy(() => import("../404"));
 export default () => (
   <CatalogProvider>
     <Router>
+      <TopNav />
       <Suspense fallback={"Loading"}>
         <Switch>
           <Route exact path="/" component={Catalog} />
