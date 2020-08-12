@@ -3,7 +3,7 @@
 exports[`<Search /> spec Contains search input and sets initial value 1`] = `
 <DocumentFragment>
   <input
-    class="sc-fzoLsD jOfBdy"
+    class="sc-AxmLO fRJPNF"
     placeholder="Search"
     value="foo"
   />

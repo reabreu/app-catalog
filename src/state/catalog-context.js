@@ -5,6 +5,7 @@ const CatalogDispatchContext = React.createContext();
 
 export const ACTIONS = Object.freeze({
   ADD: "ADD",
+  ADD_BY_ID: "ADD_BY_ID",
   SETSTATUS: "SETSTATUS",
 });
 
@@ -29,6 +30,15 @@ function catalogReducer(state, action) {
     case ACTIONS.SETSTATUS: {
       return { ...state, status: action.payload };
     }
+    case ACTIONS.ADD_BY_ID: {
+      return {
+        ...state,
+        apps: {
+          ...state.apps,
+          [action.payload.id]: action.payload.data,
+        },
+      };
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -45,6 +55,27 @@ async function fetchAllApps(dispatch) {
 
     dispatch({ type: ACTIONS.SETSTATUS, payload: STATUS.IDLE });
     dispatch({ type: ACTIONS.ADD, payload: res });
+  } catch (error) {
+    console.log("error", error);
+    dispatch({ type: ACTIONS.SETSTATUS, payload: STATUS.ERROR });
+  }
+}
+
+async function fetchAppById(dispatch, id) {
+  dispatch({ type: ACTIONS.SETSTATUS, payload: STATUS.FETCHING });
+
+  try {
+    const request = await fetch(`/apps/${id}`);
+    const res = await request.json();
+
+    dispatch({ type: ACTIONS.SETSTATUS, payload: STATUS.IDLE });
+    dispatch({
+      type: ACTIONS.ADD_BY_ID,
+      payload: {
+        id,
+        data: res,
+      },
+    });
   } catch (error) {
     console.log("error", error);
     dispatch({ type: ACTIONS.SETSTATUS, payload: STATUS.ERROR });
@@ -84,4 +115,15 @@ function useCatalogDispatch() {
   return context;
 }
 
-export { CatalogProvider, useCatalogState, useCatalogDispatch, fetchAllApps };
+function useCatalogContext() {
+  return [useCatalogState(), useCatalogDispatch()];
+}
+
+export {
+  CatalogProvider,
+  useCatalogContext,
+  useCatalogState,
+  useCatalogDispatch,
+  fetchAllApps,
+  fetchAppById,
+};

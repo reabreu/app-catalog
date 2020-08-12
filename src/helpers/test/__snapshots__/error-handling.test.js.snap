@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RenderWithErrorHandling /> spec Renders children on IDLE 1`] = `
+<DocumentFragment>
+  <p>
+    children
+  </p>
+</DocumentFragment>
+`;
+
+exports[`<RenderWithErrorHandling /> spec Renders error button text on ERROR 1`] = `
+<DocumentFragment>
+  <button
+    class="sc-AxjAm hUNfZb"
+  >
+    Oops, something went wrong, click here to retry
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<RenderWithErrorHandling /> spec Renders fetching text on FETCHING 1`] = `
+<DocumentFragment>
+  <p
+    class="sc-AxirZ kveKhk"
+  >
+    Hang in there a little bit, we're fetching the app for you...
+  </p>
+</DocumentFragment>
+`;

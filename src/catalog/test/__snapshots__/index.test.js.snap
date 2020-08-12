@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Catalog spec Renders button to retry on error 1`] = `
+exports[`Catalog spec Renders app list on request sucess 1`] = `
 <DocumentFragment>
   <h1
     class="sc-AxjAm jWlVxK"
@@ -8,47 +8,7 @@ exports[`Catalog spec Renders button to retry on error 1`] = `
     App Catalog
   </h1>
   <input
-    class="sc-fzoLsD jOfBdy"
-    placeholder="Search"
-    value=""
-  />
-  <button
-    class="sc-fzozJi eLLRey"
-  >
-    Oops, something went wrong, click here to retry
-  </button>
-</DocumentFragment>
-`;
-
-exports[`Catalog spec Renders with fetching state and renders items on success 1`] = `
-<DocumentFragment>
-  <h1
-    class="sc-AxjAm jWlVxK"
-  >
-    App Catalog
-  </h1>
-  <input
-    class="sc-fzoLsD jOfBdy"
-    placeholder="Search"
-    value=""
-  />
-  <p
-    class="sc-AxmLO ewGoCP"
-  >
-    Hang in there a little bit, we're fetching the catalog for you...
-  </p>
-</DocumentFragment>
-`;
-
-exports[`Catalog spec Renders with fetching state and renders items on success 2`] = `
-<DocumentFragment>
-  <h1
-    class="sc-AxjAm jWlVxK"
-  >
-    App Catalog
-  </h1>
-  <input
-    class="sc-fzoLsD jOfBdy"
+    class="sc-AxmLO fRJPNF"
     placeholder="Search"
     value=""
   />

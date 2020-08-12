@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import {
-  useCatalogState,
-  useCatalogDispatch,
+  useCatalogContext,
   fetchAllApps,
   STATUS,
 } from "../state/catalog-context";
 import { Title } from "./title";
 import { Search } from "./search";
 import { AppCard } from "./app-card";
-import { AppsListUl, FetchingText, RetryButton } from "./styles";
+import { AppsListUl } from "./styles";
+import { RenderWithErrorHandling } from "../helpers/error-handling";
+
+const filterBySearch = (col, searchTerm) =>
+  col.filter(({ name }) => name.startsWith(searchTerm.toLowerCase()));
 
 export default () => {
-  const { apps, status } = useCatalogState();
-  const dispatch = useCatalogDispatch();
+  const [state, dispatch] = useCatalogContext();
   const [searchTerm, setSearchTerm] = useState("");
   const [hasFetched, setHasFetched] = useState(false);
+  const { apps } = state;
 
   useEffect(() => {
     fetchAllApps(dispatch);
@@ -24,36 +27,19 @@ export default () => {
   if (!hasFetched) return null;
 
   const appsArray = Object.keys(apps).map((key) => apps[key]);
-
-  const filteredApps = appsArray.filter(({ name }) =>
-    name.startsWith(searchTerm.toLowerCase())
-  );
-
-  const isFetching = STATUS.FETCHING === status;
-  const isError = STATUS.ERROR === status;
-  const isIdle = STATUS.IDLE === status;
+  const filteredApps = filterBySearch(appsArray, searchTerm);
 
   return (
     <>
       <Title />
       <Search searchTerm={searchTerm} onChangeHandler={setSearchTerm} />
-      {isIdle && (
+      <RenderWithErrorHandling onErrorRetry={() => fetchAllApps(dispatch)}>
         <AppsListUl length={filteredApps.length}>
           {filteredApps.map((app) => (
             <AppCard key={app.id} app={app} />
           ))}
         </AppsListUl>
-      )}
-      {isFetching && (
-        <FetchingText>
-          Hang in there a little bit, we're fetching the catalog for you...
-        </FetchingText>
-      )}
-      {isError && (
-        <RetryButton onClick={(e) => fetchAllApps(dispatch)}>
-          Oops, something went wrong, click here to retry
-        </RetryButton>
-      )}
+      </RenderWithErrorHandling>
     </>
   );
 };
