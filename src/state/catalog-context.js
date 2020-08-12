@@ -46,6 +46,7 @@ async function fetchAllApps(dispatch) {
     dispatch({ type: ACTIONS.SETSTATUS, payload: STATUS.IDLE });
     dispatch({ type: ACTIONS.ADD, payload: res });
   } catch (error) {
+    console.log("error", error);
     dispatch({ type: ACTIONS.SETSTATUS, payload: STATUS.ERROR });
   }
 }
