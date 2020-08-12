@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import {
   useCatalogState,
   useCatalogDispatch,
   fetchAllApps,
 } from "../state/catalog-context";
+import { Title } from "./title";
+import { AppCard } from "./app-card";
+import { AppsListUl } from "./styles";
 
 export default () => {
-  const { apps, status } = useCatalogState();
+  const { apps } = useCatalogState();
   const dispatch = useCatalogDispatch();
 
   useEffect(() => {
@@ -19,13 +21,13 @@ export default () => {
   });
 
   return (
-    <ul>
-      {status}
-      {appsArray.map((app) => (
-        <li key={app.id}>
-          <Link to={`/app/${app.id}`}>{app.name}</Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <Title />
+      <AppsListUl>
+        {appsArray.map((app) => (
+          <AppCard key={app.id} app={app} />
+        ))}
+      </AppsListUl>
+    </>
   );
 };
