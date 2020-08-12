@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppCard /> spec Renders Card 1`] = `
+<DocumentFragment>
+  <li
+    class="sc-AxiKw cfuaTr"
+  >
+    <a
+      class="sc-Axmtr cIJKbp"
+      href="/app/foo"
+    >
+      <div
+        class="sc-AxhCb kqkZWI"
+      >
+        <img
+          alt="foo app"
+          class="sc-AxhUy kfGxSb"
+          src="foo.jpg"
+        />
+        <div>
+          <p
+            class="sc-AxgMl kdnRNu"
+          >
+            foo app
+          </p>
+          <p
+            class="sc-AxheI gyIMnE"
+          >
+            1.2.2
+          </p>
+        </div>
+      </div>
+    </a>
+  </li>
+</DocumentFragment>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> spec Renders Title 1`] = `
+<DocumentFragment>
+  <h1
+    class="sc-AxjAm jWlVxK"
+  >
+    App Catalog
+  </h1>
+</DocumentFragment>
+`;

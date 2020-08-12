@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> spec Renders NotFound 1`] = `
+<DocumentFragment>
+  <p>
+    Sorry but the page you're looking for does not exist
+  </p>
+</DocumentFragment>
+`;

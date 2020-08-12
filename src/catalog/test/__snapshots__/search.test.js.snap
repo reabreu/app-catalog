@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> spec Contains search input and sets initial value 1`] = `
+<DocumentFragment>
+  <input
+    class="sc-fzoLsD jOfBdy"
+    placeholder="Search"
+    value="foo"
+  />
+</DocumentFragment>
+`;
