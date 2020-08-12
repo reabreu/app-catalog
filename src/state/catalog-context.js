@@ -3,12 +3,12 @@ import React, { useReducer } from "react";
 const CatalogStateContext = React.createContext();
 const CatalogDispatchContext = React.createContext();
 
-const ACTIONS = Object.freeze({
+export const ACTIONS = Object.freeze({
   ADD: "ADD",
   SETSTATUS: "SETSTATUS",
 });
 
-const STATUS = Object.freeze({
+export const STATUS = Object.freeze({
   IDLE: "IDLE",
   FETCHING: "FETCHING",
   ERROR: "ERROR",

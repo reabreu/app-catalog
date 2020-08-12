@@ -8,8 +8,7 @@ export const Header1 = styled.h1`
 export const AppsListUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 10px 0 20px;
   max-width: 900px;
   margin: 0 auto;
 `;
@@ -18,9 +17,10 @@ export const Li = styled.li`
   display: block;
   padding: 45px 5px 30px;
   border: 1px solid white;
-  width: 20%;
+  width: calc(25% - 10px);
+  margin-right: 10px;
   margin-top: 20px;
-  min-height: 200px;
+  min-height: 300px;
   opacity: 0.5;
   transition: opacity 0.2s ease-out;
 
@@ -61,4 +61,48 @@ export const AppVersion = styled.p`
 export const AppLink = styled(Link)`
   text-decoration: none;
   height: 100%;
+`;
+
+export const FetchingText = styled.p`
+  color: white;
+  text-align: center;
+`;
+
+export const RetryButton = styled.button`
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  outline: none;
+  padding: 5px 10px;
+  max-width: 190px;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+
+  &:hover {
+    background: white;
+    color: black;
+  }
+`;
+
+export const SearchInput = styled.input`
+  width: 100%;
+  background: none;
+  border: 1px solid white;
+  max-width: 400px;
+  margin: 0 auto 40px;
+  display: block;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: white;
+  font-size: 15px;
+
+  &::placeholder {
+    color: white;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
 `;

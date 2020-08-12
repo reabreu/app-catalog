@@ -10,4 +10,12 @@ export default createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     background: #0d4f71;
   }
+
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 `;
