@@ -37,6 +37,22 @@ const handlers = [
       ])
     );
   }),
+  rest.get("/apps/foo", (req, res, ctx) => {
+    return res(
+      ctx.json({
+        id: "asdm123312asdnboqwedsa",
+        name: "prometheus-operator-app-chart",
+        description: "A Helm Chart for Prometheus Operator.",
+        version: "0.2.0",
+        author: "Giantswarm",
+        iconURL:
+          "https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png",
+        url: "https://github.com/giantswarm/prometheus-operator-app",
+        readmeURL:
+          "https://raw.githubusercontent.com/giantswarm/prometheus-operator-app/v0.1.1/README.md",
+      })
+    );
+  }),
 ];
 
 export const server = setupServer(...handlers);

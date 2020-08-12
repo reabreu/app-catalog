@@ -6,25 +6,28 @@ import {
   STATUS,
 } from "../state/catalog-context";
 import { RenderWithErrorHandling } from "../helpers/error-handling";
+import { AppInfo } from "./app-info";
 
 export default () => {
   let { id } = useParams();
+
   const [state, dispatch] = useCatalogContext();
   const { apps, status } = state;
+  const appData = apps[id];
 
   const isIdle = STATUS.IDLE === status;
 
   useEffect(() => {
-    if (!apps[id]) {
+    if (!appData) {
       fetchAppById(dispatch, id);
     }
   }, [dispatch]);
 
-  if (!apps[id] && isIdle) return null;
+  if (!appData && isIdle) return null;
 
   return (
     <RenderWithErrorHandling>
-      <p>app</p>
+      <AppInfo {...appData} />
     </RenderWithErrorHandling>
   );
 };
