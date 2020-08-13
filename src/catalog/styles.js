@@ -63,20 +63,34 @@ export const SearchInput = styled.input`
   width: 100%;
   background: none;
   border: 1px solid white;
-  max-width: 400px;
-  margin: 0 auto 40px;
   display: block;
   border-radius: 8px;
   padding: 8px 10px;
   color: white;
+  margin-right: 10px;
+  width: 80%;
   font-size: 15px;
 
   &::placeholder {
     color: white;
     opacity: 1;
   }
+`;
 
-  &:focus {
-    outline: none;
-  }
+export const AuthSelect = styled.select`
+  border: 1px solid white;
+  background: none;
+  color: white;
+  width: 100%;
+`;
+
+export const AuthOption = styled.option`
+  background: #0d4f71;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+`;
+
+export const FilterPanel = styled.div`
+  display: flex;
+  padding: 0 10px 0 20px;
 `;

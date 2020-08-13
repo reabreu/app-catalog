@@ -4,16 +4,23 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Title } from "./title";
 import { Search } from "./search";
 import { AppCard } from "./app-card";
-import { AppsListUl } from "./styles";
+import { AuthorSelect } from "./author-select";
+import { AppsListUl, FilterPanel } from "./styles";
 import { RenderWithErrorHandling } from "../helpers/error-handling";
 
 const filterBySearch = (col, searchTerm) =>
   col.filter(({ name }) => name.startsWith(searchTerm.toLowerCase()));
 
+const filterByAuthor = (col, selectedAuthor) =>
+  col.filter(
+    ({ author }) => selectedAuthor === "" || author === selectedAuthor
+  );
+
 export default () => {
   const [state, dispatch] = useCatalogContext();
   const [searchTerm, setSearchTerm] = useState("");
   const [hasFetched, setHasFetched] = useState(false);
+  const [selectedAuthor, setSelectedAuthor] = useState("");
   const { apps } = state;
 
   useEffect(() => {
@@ -24,18 +31,36 @@ export default () => {
   if (!hasFetched) return null;
 
   const appsArray = Object.keys(apps).map((key) => apps[key]);
-  const filteredApps = filterBySearch(appsArray, searchTerm);
+
+  // Get all authors
+  const authorsSet = new Set();
+
+  appsArray.forEach((app) => authorsSet.add(app.author));
+
+  const searchFilteredApps = filterBySearch(appsArray, searchTerm);
+  const authorFilteredApps = filterByAuthor(searchFilteredApps, selectedAuthor);
 
   return (
     <>
       <Title />
-      <Search searchTerm={searchTerm} onChangeHandler={setSearchTerm} />
+      <FilterPanel>
+        <Search searchTerm={searchTerm} onChangeHandler={setSearchTerm} />
+        <AuthorSelect
+          options={Array.from(authorsSet)}
+          onChangeHandler={(e) => setSelectedAuthor(e.target.value)}
+        />
+      </FilterPanel>
       <RenderWithErrorHandling onErrorRetry={() => fetchAllApps(dispatch)}>
         <AppsListUl>
           <TransitionGroup component={null} exit={false}>
-            {filteredApps.map((app, idx) => {
+            {authorFilteredApps.map((app, idx) => {
               return (
-                <CSSTransition key={app.id} timeout={500} classNames="item">
+                <CSSTransition
+                  key={app.id}
+                  timeout={500}
+                  classNames="item"
+                  unmountOnExit
+                >
                   <AppCard app={app} />
                 </CSSTransition>
               );

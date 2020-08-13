@@ -21,7 +21,7 @@ export default () => {
     if (!appData) {
       fetchAppById(dispatch, id);
     }
-  }, [dispatch]);
+  }, [dispatch, appData, id]);
 
   if (!appData && isIdle) return null;
 

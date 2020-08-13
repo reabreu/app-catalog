@@ -7,11 +7,31 @@ exports[`Catalog spec Renders app list on request sucess 1`] = `
   >
     App Catalog
   </h1>
-  <input
-    class="sc-AxmLO fRJPNF"
-    placeholder="Search"
-    value=""
-  />
+  <div
+    class="sc-fzpans bjwKLP"
+  >
+    <input
+      class="sc-AxmLO bjKBqP"
+      placeholder="Search"
+      value=""
+    />
+    <select
+      class="sc-fzozJi iKyCId"
+    >
+      <option
+        class="sc-fzoLsD kNEntU"
+        value=""
+      >
+        Select an author
+      </option>
+      <option
+        class="sc-fzoLsD kNEntU"
+        value="Giantswarm"
+      >
+        Giantswarm
+      </option>
+    </select>
+  </div>
   <ul
     class="sc-AxirZ jcXTWK"
   >

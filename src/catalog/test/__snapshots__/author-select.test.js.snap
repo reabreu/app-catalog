@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> spec Renders a select with provided options 1`] = `
+<DocumentFragment>
+  <select
+    class="sc-fzozJi iKyCId"
+  >
+    <option
+      class="sc-fzoLsD kNEntU"
+      value=""
+    >
+      Select an author
+    </option>
+    <option
+      class="sc-fzoLsD kNEntU"
+      value="1"
+    >
+      1
+    </option>
+    <option
+      class="sc-fzoLsD kNEntU"
+      value="2"
+    >
+      2
+    </option>
+    <option
+      class="sc-fzoLsD kNEntU"
+      value="3"
+    >
+      3
+    </option>
+  </select>
+</DocumentFragment>
+`;
