@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Catalog spec Renders app details on data fetch sucess 1`] = `
+exports[`App details spec Renders app details on data fetch sucess 1`] = `
 <DocumentFragment>
   <h1
     class="sc-AxhCb foQtds"
@@ -39,7 +39,7 @@ exports[`Catalog spec Renders app details on data fetch sucess 1`] = `
           target="_blank"
         >
           <svg
-            class="sc-AxheI fniENP"
+            class="sc-Axmtr hBVTto"
             fill="none"
             height="30"
             viewBox="0 0 1024 1024"
@@ -57,6 +57,14 @@ exports[`Catalog spec Renders app details on data fetch sucess 1`] = `
         </a>
       </div>
     </div>
+  </div>
+  <div
+    class="sc-AxheI fvhvZN"
+  >
+    <p>
+      read me content
+    </p>
+    }
   </div>
 </DocumentFragment>
 `;

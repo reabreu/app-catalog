@@ -53,6 +53,13 @@ const handlers = [
       })
     );
   }),
+
+  rest.get(
+    "https://raw.githubusercontent.com/giantswarm/prometheus-operator-app/v0.1.1/README.md",
+    (req, res, ctx) => {
+      return res(ctx.text("read me content"));
+    }
+  ),
 ];
 
 export const server = setupServer(...handlers);

@@ -19,3 +19,8 @@ export const DetailsIcon = styled.img`
 export const DetailsInfo = styled.p`
   color: white;
 `;
+
+export const READMEWrapper = styled.div`
+  background: white;
+  padding: 5px 10px;
+`;

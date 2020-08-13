@@ -4,7 +4,7 @@ import { Route, MemoryRouter } from "react-router-dom";
 import AppDetails from "../index";
 import { CatalogProvider } from "../../state/catalog-context";
 
-describe("Catalog spec", () => {
+describe("App details spec", () => {
   it("Renders app details on data fetch sucess", async () => {
     const { asFragment, findAllByRole } = render(
       <MemoryRouter initialEntries={["/app/foo"]}>

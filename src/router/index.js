@@ -23,7 +23,7 @@ export default () => (
     <Router>
       <TopNav />
       <AppContainer>
-        <Suspense fallback={"Loading"}>
+        <Suspense fallback={""}>
           <Switch>
             <Route exact path="/" component={Catalog} />
             <Route path="/app/:id" component={AppDetails} />
