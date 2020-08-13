@@ -9,8 +9,6 @@ export const AppsListUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
   padding: 0 10px 0 20px;
-  max-width: 900px;
-  margin: 0 auto;
 `;
 
 export const Li = styled.li`
@@ -21,8 +19,6 @@ export const Li = styled.li`
   margin-right: 10px;
   margin-top: 20px;
   min-height: 300px;
-  opacity: 0.5;
-  transition: opacity 0.2s ease-out;
 
   &:hover {
     cursor: pointer;

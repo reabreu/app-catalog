@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {
-  useCatalogContext,
-  fetchAllApps,
-  STATUS,
-} from "../state/catalog-context";
+import { useCatalogContext, fetchAllApps } from "../state/catalog-context";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Title } from "./title";
 import { Search } from "./search";
 import { AppCard } from "./app-card";
@@ -34,10 +31,16 @@ export default () => {
       <Title />
       <Search searchTerm={searchTerm} onChangeHandler={setSearchTerm} />
       <RenderWithErrorHandling onErrorRetry={() => fetchAllApps(dispatch)}>
-        <AppsListUl length={filteredApps.length}>
-          {filteredApps.map((app) => (
-            <AppCard key={app.id} app={app} />
-          ))}
+        <AppsListUl>
+          <TransitionGroup component={null} exit={false}>
+            {filteredApps.map((app, idx) => {
+              return (
+                <CSSTransition key={app.id} timeout={500} classNames="item">
+                  <AppCard app={app} />
+                </CSSTransition>
+              );
+            })}
+          </TransitionGroup>
         </AppsListUl>
       </RenderWithErrorHandling>
     </>

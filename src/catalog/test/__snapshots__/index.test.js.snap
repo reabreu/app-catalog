@@ -13,10 +13,10 @@ exports[`Catalog spec Renders app list on request sucess 1`] = `
     value=""
   />
   <ul
-    class="sc-AxirZ essigJ"
+    class="sc-AxirZ jcXTWK"
   >
     <li
-      class="sc-AxiKw cfuaTr"
+      class="sc-AxiKw bqFWkx item-enter item-enter-active"
     >
       <a
         class="sc-Axmtr cIJKbp"
@@ -46,7 +46,7 @@ exports[`Catalog spec Renders app list on request sucess 1`] = `
       </a>
     </li>
     <li
-      class="sc-AxiKw cfuaTr"
+      class="sc-AxiKw bqFWkx item-enter item-enter-active"
     >
       <a
         class="sc-Axmtr cIJKbp"

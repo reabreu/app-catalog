@@ -18,4 +18,17 @@ export default createGlobalStyle`
   *, *:before, *:after {
     box-sizing: inherit;
   }
+
+  .item-enter {
+    opacity: 0;
+  }
+
+  .item-enter-active {
+    opacity: 0.6;
+    transition: opacity 500ms ease-in;
+  }
+
+  .item-enter-done {
+    opacity: 0.6;
+  }
 `;
