@@ -47,6 +47,7 @@ function catalogReducer(state, action) {
 
 // Async actions
 async function fetchAllApps(dispatch) {
+  dispatch({ type: ACTIONS.ADD, payload: [] });
   dispatch({ type: ACTIONS.SETSTATUS, payload: STATUS.FETCHING });
 
   try {
