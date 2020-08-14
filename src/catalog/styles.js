@@ -93,4 +93,5 @@ export const AuthOption = styled.option`
 export const FilterPanel = styled.div`
   display: flex;
   padding: 0 10px 0 20px;
+  margin-bottom: 30px;
 `;

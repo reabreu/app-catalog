@@ -2,10 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Development
 
-### `yarn && yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Make sure you have the Giant Swarm api mentioned above running on [http://localhost:3000](http://localhost:3000)
+- `yarn && yarn start` - app will ask to use another port, most likely [http://localhost:3001](http://localhost:3001)
+- Open to view it in the browser.
 
 ## Test
 
@@ -22,3 +21,13 @@ Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Architectural notes
+
+- App uses React Context for state management which works well for the complexity of the demo, you can check it on the `state` folder
+- Styling is archieved via the `styled components` library
+- Folders are split per feature
+- Tests use `jest` and `react testing library` along with `msw` for network request mocking
+- Given the demo nature, the app is not Dockerized
+- App uses `React Suspense` for lazy loading and good `FCP: First Contentful Paint`, and loading states while fetching data until `FMP: First Meaningful Paint`.
+- Error handling is implemented for failed network requests
